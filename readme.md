@@ -1,13 +1,21 @@
 ## Exhausting A Daijiro
 
-
-
-git clone
+まず、ターミナルを使えるようにしよう！
+Other > Terminal で開いて、コピペする 
+```
 xcode-select --install
-
-
+```
+次に、これダウンロードしよう！（ターミナルで）
+```
+git clone https://
+```
 Homebrewっていうものを入れます。
 Other > Terminal で開いて、コピペする 
+```
+xcode-select --install
+```
+
+
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
@@ -40,6 +48,7 @@ npm start
 ```
 Chromeとか開いて、 localhost:5000をアドレスに入れて検索する
 
+サーバーにおきたかったら、聞いてね。
 
 
 ### 新しい場所の入れ方
