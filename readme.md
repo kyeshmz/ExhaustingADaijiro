@@ -1,4 +1,6 @@
-## Exhausting A Daijiro
+# Exhausting A Daijiro
+###  MZNLAB
+
 
 まず、ターミナルを使えるようにしよう！
 Other > Terminal で開いて、コピペする 
@@ -29,13 +31,14 @@ npm --version
 そうであれば、成功。
 
 次に、ディレクトリーに移動します。
+
 ```
 cd ExhaustingADaijiro
 ```
 で以下をコピペしていく
 
 
-``
+```
 npm install -g tsd
 npm install 
 tsd reinstall
@@ -48,6 +51,7 @@ Chromeとか開いて、 localhost:5000をアドレスに入れて検索する
 
 ### 新しい場所の入れ方
 Add new location name to index.js (line 61)
+
 ```
 var sites = ['london', 'netherlands', 'birmingham', 'gwangju'];
 ```
@@ -71,6 +75,7 @@ london: {
 Add new location to public/index.html in the public_sites variable.
 
 これね。
+
 ```
 var public_sites = [
         { id: 'london', text: 'london' },
@@ -91,6 +96,7 @@ Create a new logo for the top right corner called logo-site.png where site is th
 Add credits to public/index.html
 
 クレジット系を記入。型は以下。
+
 ```
 <h1>EXHAUSTING A CROWD</h1>
         <p>BIRMINGHAM, UK</p>
@@ -102,7 +108,7 @@ Add credits to public/index.html
         <p><a href="https://twitter.com/carlscottdavies">CARL DAVIES</a> <span class="for">/</span> VIDEO</p>
         <p>SPECIAL THANKS <span class="for">to</span> LOUISE LATTER</p>
         <div class="credits-divider"><span></span>on location at<span></span></div>
-        <p>VICTORIA SQUARE, BIRMINGHAM <span class="for">on</span> AUGUST 21</p>`
+        <p>VICTORIA SQUARE, BIRMINGHAM <span class="for">on</span> AUGUST 21</p>
 ```
 
 Run `tsc --outDir public/compiled/ typescript/* `to update TypeScript definitions.
