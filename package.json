@@ -1,0 +1,37 @@
+{
+  "name": "exhausting-a-crowd",
+  "version": "0.2.0",
+  "description": "Exhausting a crowd",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "basic-auth": "^1.0.1",
+    "body-parser": "^1.12.2",
+    "express": "~4.9.x",
+    "mobile-detect": "^1.2.0",
+    "node-sass-middleware": "^0.9.7",
+    "pg": "^4.3.0",
+    "pg-query": "^0.11.0",
+    "raven": "^0.7.3",
+    "request": "^2.55.0",
+    "serve-favicon": "^2.2.1",
+    "tsd": "^0.6.5",
+    "typescript-compiler": "^1.4.1-2",
+    "typescript-middleware": "^0.5.3"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kylemcdonald/exhaustingacrowd"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Dosis:200,300,400,500" type="text/css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+
+    <title>Exhausting a Crowd</title>
+    <meta property="og:description" content="Crowdsourced annotation of twelve hours of footage, shot at Piccadilly Circus, London." />
+    <meta property="og:image" content="http://exhaustingacrowd.com/og_image.jpg" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/1.0.1/svg.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+    <script src="//cdn.ravenjs.com/1.1.15/jquery,native/raven.min.js"></script>
+
+    <script>
+    var public_sites = [
+        { id: 'london', text: 'london' },
+        { id: 'netherlands', text: 'netherlands' },
+        { id: 'birmingham', text: 'birmingham, uk' }
+        // { id: 'gwangju', text: 'gwangju' }
+    ];
+    </script>
+</head>
+<body>
+<div id="videocontainer">
+    <div id="ytplayer"></div>
+    <div id="drawing"></div>
+    <div id="linedrawing"></div>
+</div>
+
+<div id="overlay">
+
+    <div id="locationHeader">
+        <script>
+        public_sites.forEach(outer => {
+            var html = '<div class="local ' + outer.id + '">';
+            var pieces = [];
+            public_sites.forEach(inner => {
+                if(inner == outer) {
+                    pieces.push('<b>' + inner.id + '</b>');
+                } else {
+                    pieces.push('<a href="./' + inner.id + '">' + inner.id + '</a>');
+                }
+            });
+            html += pieces.join(' | ');
+            html += '</div>';
+            document.write(html);
+        });
+        </script>
+    </div>
+
+    <div id="logoHeader">
+        <script>
+        public_sites.forEach(site => {
+            document.write('<img src="logo-' + site.id + '.png" class="local ' + site.id + '"/>');
+        });
+        </script>
+    </div>
+
+    <div id="timeAndDate">
+        <span id="hour">01</span><span id="colon">:</span><span id="minute">O9 PM</span>
+    </div>
+
+    <div id="notes"></div>
+
+    <div id="clickArea"></div>
+
+    <div id="rewind">
+	<img src="rewind.png"/>
+	<div class="tooltip">REWIND 10SEC</div>
+    </div>
+
+    <div id="back" style="display:none">
+	<img src="back.png"/>
+    </div>
+
+
+    <div id="addNoteInterface" style="display:none">
+        <div id="note-wrapper">
+            <textarea placeholder="WHAT'S HAPPENING?" id="note-text" maxlength="140"></textarea>
+        </div>
+        <div id="submitButton">TAKE NOTE</div>
+    </div>
+
+    <img id="persistent-spinner" class="spinner" src="spinner.gif"/>
+
+    <div id="loading">
+        <div id="loading-middle">
+            <p class="title">EXHAUSTING A CROWD</p>
+            <p class="location">
+            <script>
+            public_sites.forEach(site => {
+                document.write('<span class="local ' + site.id + '">' + site.text + '</span>');
+            });
+            </script>
+            </p>
+            <p>by KYLE MCDONALD</p>
+            <img id="initial-spinner" class="spinner" src="spinner.gif"/>
+            <p>&mdash; CLICK &amp; FOLLOW EVERYONE &mdash;</p>
+        </div>
+    </div>
+
+</div>
+
+<div id="credits">
+    <div class="credits-content local london">
+        <h1>EXHAUSTING A CROWD</h1>
+        <p>LONDON</p>
+        <div class="credits-divider"><span></span>2O15<span></span></div>
+        <p><span class="for">by</span> <a href="http://kylemcdonald.net/">KYLE MCDONALD</a> <span class="for">for</span> <a href="http://www.vam.ac.uk/content/exhibitions/all-of-this-belongs-to-you/">ALL OF THIS BELONGS TO YOU</a></p>
+        <p><span class="for">with</span> <a href="http://halfdanj.dk/">JONAS JONGEJAN</a> / COLLABORATION &amp; SITE DEVELOPMENT</p>
+        <p>COMMISSIONED <span class="for">by</span> <a href="http://www.vam.ac.uk/">VICTORIA AND ALBERT MUSEUM</a></p>
+        <p><a href="http://www.nicoturner.co.uk/">NICO TURNER</a> <span class="for">/</span> VIDEO</p>
+        <p>SPECIAL THANKS <span class="for">to</span> CORINNA GARDNER, <a href="http://www.joycedivision.com/">DAN JOYCE</a>, <a href="http://www.hellicarandlewis.com/">HELLICAR &amp; LEWIS</a></p>
+        <div class="credits-divider"><span></span>on location at<span></span></div>
+        <p><a href="http://www.lillywhites.com/">LILLYWHITES</a>, <a href="https://www.google.com/maps/place/Piccadilly+Circus,+London">PICCADILLY CIRCUS</a> <span class="for">from</span> 3PM&ndash;3AM, MAY 17&ndash;18</p>
+        <p>INSPIRED <span class="for">by</span> <a href="http://wakefieldpress.com/perec_attempt.html">GEORGES PEREC</a></p>
+    </div>
+    <div class="credits-content local netherlands">
+        <h1>EXHAUSTING A CROWD</h1>
+        <p>NETHERLANDS</p>
+        <div class="credits-divider"><span></span>2O15<span></span></div>
+        <p><span class="for">by</span> <a href="http://kylemcdonald.net/">KYLE MCDONALD</a></p>
+        <p><span class="for">with</span> <a href="http://halfdanj.dk/">JONAS JONGEJAN</a> / COLLABORATION &amp; SITE DEVELOPMENT</p>
+        <p>CO-SPONSORED <span class="for">by</span> <a href="https://www.brakkegrond.nl/">BRAKKE GROND</a>, <a href="http://www.doclab.org/">IDFA DOCLAB</a>, <a href="http://v2.nl/">V2_ INSTITUTE</a></p>
+        <p>FIRST COMMISSIONED <span class="for">by</span> <a href="http://www.vam.ac.uk/">VICTORIA AND ALBERT MUSEUM</a> <span class="for">for</span> <a href="http://www.vam.ac.uk/content/exhibitions/all-of-this-belongs-to-you/">ALL OF THIS BELONGS TO YOU</a></p>
+        <p><a href="https://vimeo.com/user15785264">DAAN KUYS</a> <span class="for">/</span> VIDEO</p>
+        <p>SPECIAL THANKS <span class="for">to</span> LARA COOMANS, CASPAR SONNEN, JAN MISKER, MICHEL VAN DARTEL</p>
+        <div class="credits-divider"><span></span>on location at<span></span></div>
+        <p>AMSTERDAM, ROTTERDAM, UTRECHT <span class="for">on</span> NOVEMBER 13</p>
+        <p>INSPIRED <span class="for">by</span> <a href="http://wakefieldpress.com/perec_attempt.html">GEORGES PEREC</a></p>
+    </div>
+    <div class="credits-content local birmingham">
+        <h1>EXHAUSTING A CROWD</h1>
+        <p>BIRMINGHAM, UK</p>
+        <div class="credits-divider"><span></span>2O17<span></span></div>
+        <p><span class="for">by</span> <a href="http://kylemcdonald.net/">KYLE MCDONALD</a></p>
+        <p><span class="for">with</span> <a href="http://halfdanj.dk/">JONAS JONGEJAN</a> / COLLABORATION &amp; SITE DEVELOPMENT</p>
+        <p>COMMISSIONED <span class="for">by</span> <a href="http://www.bom.org.uk/">BIRMINGHAM OPEN MEDIA</a></p>
+        <p>FIRST COMMISSIONED <span class="for">by</span> <a href="http://www.vam.ac.uk/">VICTORIA AND ALBERT MUSEUM</a> <span class="for">for</span> <a href="http://www.vam.ac.uk/content/exhibitions/all-of-this-belongs-to-you/">ALL OF THIS BELONGS TO YOU</a></p>
+        <p><a href="https://twitter.com/carlscottdavies">CARL DAVIES</a> <span class="for">/</span> VIDEO</p>
+        <p>SPECIAL THANKS <span class="for">to</span> LOUISE LATTER</p>
+        <div class="credits-divider"><span></span>on location at<span></span></div>
+        <p>VICTORIA SQUARE, BIRMINGHAM <span class="for">on</span> AUGUST 21</p>
+        <p>INSPIRED <span class="for">by</span> <a href="http://wakefieldpress.com/perec_attempt.html">GEORGES PEREC</a></p>
+    </div>
+    <div class="credits-content local gwangju">
+        <h1>EXHAUSTING A CROWD</h1>
+        <p>GWANGJU</p>
+        <div class="credits-divider"><span></span>2O17<span></span></div>
+        <p><span class="for">by</span> <a href="http://kylemcdonald.net/">KYLE MCDONALD</a></p>
+        <p><span class="for">with</span> <a href="http://halfdanj.dk/">JONAS JONGEJAN</a> / COLLABORATION &amp; SITE DEVELOPMENT</p>
+        <p>COMMISSIONED <span class="for">by</span> <a href="https://www.acc.go.kr">ACC</a></p>
+        <p>FIRST COMMISSIONED <span class="for">by</span> <a href="http://www.vam.ac.uk/">VICTORIA AND ALBERT MUSEUM</a> <span class="for">for</span> <a href="http://www.vam.ac.uk/content/exhibitions/all-of-this-belongs-to-you/">ALL OF THIS BELONGS TO YOU</a></p>
+        <p>LEE KYOUNGHO, HEO JI EUN <span class="for">/</span> VIDEO</p>
+        <p>SPECIAL THANKS <span class="for">to</span> 阿部一直, Hibiki Mizuno, 장미현</p>
+        <div class="credits-divider"><span></span>on location at<span></span></div>
+        <p>GWANGJU STATION, ACC SQUARE and GWANGJU FOLLY <span class="for">on</span> OCTOBER 13</p>
+        <p>INSPIRED <span class="for">by</span> <a href="http://wakefieldpress.com/perec_attempt.html">GEORGES PEREC</a></p>
+    </div>
+</div>
+
+<script src="bowser.min.js"></script>
+<script src="simplify.js"></script>
+<!--<script src="clock.js"></script>
+<script src="script.js"></script>
+<script src="api.js"></script>
+<script src="transitions.js"></script>
+-->
+<script src="compiled/global.js"></script>
+<script src="compiled/VideoPlayer.js"></script>
+<script src="compiled/clock.js"></script>
+<script src="compiled/drawingCanvas.js"></script>
+<script src="compiled/interface.js"></script>
+<script src="compiled/note.js"></script>
+<script src="compiled/api.js"></script>
+<script src="compiled/frontend.js"></script>
+<script src="https://www.youtube.com/player_api"></script>
+
+
+<script>
+    Raven.config('https://220652e2c0a34efb9ec575d8d732cba7@app.getsentry.com/41347', {
+        // pass along the version of your application
+        //release: '1.0.0',
+
+        // we highly recommend restricting exceptions to a domain in order to filter out clutter
+        //whitelistUrls: ['exhaustingacrowd.herokuapp.com', 'www.exhaustingacrowd.com']
+    }).install();
+
+    
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62220136-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>
