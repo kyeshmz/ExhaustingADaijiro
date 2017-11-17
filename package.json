@@ -17,7 +17,6 @@
     "raven": "^0.7.3",
     "request": "^2.55.0",
     "serve-favicon": "^2.2.1",
-    "tsd": "^0.6.5",
     "typescript-compiler": "^1.4.1-2",
     "typescript-middleware": "^0.5.3"
   },

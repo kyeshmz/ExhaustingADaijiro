@@ -9,10 +9,10 @@
 var sites = {
     london: {
         id: 0,
-        playlist: 'PLscUku2aaZnFE-7wKovrbi76b26VKxIT-',
-        videoDurations: [7650, 4941, 7424, 7264, 6835, 7128],
+        playlist: 'PL5TuAatceD3Tzh4h8UQ-RqHhtObC4bidh',
+        videoDurations: [(1 * 60 * 60) + (0 * 60) + 1],
         startTime: "April 15, 2015 15:00:00",
-        modulusHours: 12
+        modulusHours: 1
     },
     netherlands: {
         id: 1,
@@ -31,6 +31,13 @@ var sites = {
     gwangju: {
         id: 3,
         playlist: 'PLscUku2aaZnE7jj8SNk1nxWTTSXlOYLpP',
+        videoDurations: [(1 * 60 * 60) + (0 * 60) + 1],
+        startTime: "April 15, 2015 12:00:00",
+        modulusHours: 1
+    },
+    japan: {
+        id: 4,
+        playlist: '',
         videoDurations: [(1 * 60 * 60) + (0 * 60) + 1],
         startTime: "April 15, 2015 12:00:00",
         modulusHours: 1
