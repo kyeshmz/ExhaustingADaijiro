@@ -9,8 +9,8 @@
 var sites = {
     london: {
         id: 0,
-        playlist: 'PL5TuAatceD3Tzh4h8UQ-RqHhtObC4bidh',
-        videoDurations: [(1 * 60 * 60) + (0 * 60) + 1],
+        playlist: 'PLS_bE7JA1y5RCH5yTQ7nUiVOSVlVfthEb',
+        videoDurations: [60],
         startTime: "April 15, 2015 15:00:00",
         modulusHours: 1
     },
@@ -37,7 +37,7 @@ var sites = {
     },
     japan: {
         id: 4,
-        playlist: '',
+        playlist: 'PLS_bE7JA1y5RCH5yTQ7nUiVOSVlVfthEb',
         videoDurations: [(1 * 60 * 60) + (0 * 60) + 1],
         startTime: "April 15, 2015 12:00:00",
         modulusHours: 1
